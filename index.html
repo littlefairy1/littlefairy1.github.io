@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DINO-ViT Enhanced Diffusion for
+Multi-exemplar-based Image Translation">
+  <meta name="keywords" content="DINO-ViT">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IPAL: Infinite Planes as Lines for Consistent Mapping in Indoor Multi-floor Environments</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>        
+  
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+});
+</script>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body", style="padding-bottom: 0rem;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DINO-ViT Enhanced Diffusion for
+Multi-exemplar-based Image Translation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Xiaolin Xu<sup>1,2</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              Jiangjian Xiao<sup>1,2</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+               Xiaolu Zhang<sup>2,∗</sup>&nbsp;&nbsp;</span>
+            </span>
+            <span class="author-block">
+              Xiaofeng Jin<sup>2</sup>&nbsp;&nbsp;</span>
+            </span>
+            <span class="author-block">
+              Xiaojing Gu<sup>2</sup>&nbsp;&nbsp;</span>
+            </span>
+            <span class="author-block">
+              Gen Xu<sup>2</sup>&nbsp;&nbsp;</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block", style="color:#726f6f"><sup>1</sup>Faculty of Electrical Engineering and Computer Science, Ningbo University, Ningbo, China&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span class="author-block", style="color:#726f6f"><sup>2</sup>Ningbo Institute of Materials Technology and Engineering, Chinese Academy of Sciences, Ningbo, China&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block", style="font-size: 15px;color:#726f6f"> (email:xuxiaolin, xiaojj, zhangxiaolu, jinxiaofeng, guxiaojing, xugen@nimte.ac.cn)</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block", style="font-size: 15px;color:#726f6f"><sup>*&nbsp;</sup>Corresponding author&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block", style="color:#367DBD";>IJCNN 2024: International Joint Conference on  Neural Networks</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://www.inns.org/ijcnn-home"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Soon)</span>
+                  </a>
+              </span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>  .center-container {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+
+        <img alt="Architecture" src="./static/images/Fig2_00(2).jpg" width="100%"/>
+<!--        新增一个图片，放上下两张图-->
+
+      </div>
+    </div>
+    <div class="content has-text-justified">
+      <p>
+        Abstract—We have developed a framework for multi-exemplar-based image translation. Most exemplar-based image translation
+methods allow only one target image for appearance transfer.
+In these existing methods, GANs are often used as generators,
+and features extracted from pre-trained CNNs are used as
+visual descriptors. By comparison, our framework allows users
+to provide one or more images as exemplars to realize the
+appearance transfer of different objects while preserving the
+structure of the source image. Methods based on GANs are
+typically limited to a specific domain. To overcome this, we choose
+a diffusion model as the generator in our framework, allowing
+image translation across arbitrary domains. DINO-ViT, as a
+visual transformer trained by self-supervision, its deep features
+have rich semantic properties and visual information compared
+to CNNs’. Therefore, we use the deep features extracted from pretrained DINO-ViT as visual descriptors to achieve more accurate
+image translation. The naive combination of translation results
+from different exemplars may lead to visual disharmony due
+to rough edges and differences in object visual characteristics.
+To address this, we introduce small amounts of noise on the
+combined image to reduce inconsistencies and use the reverse
+process of diffusion to denoise, then we can obtain an image that
+is almost identical to the combined image but without artifacts.
+Our framework offers higher-quality image translation and more
+flexible image editing, and we have demonstrated the effectiveness
+and superiority of our approach in several image translation
+tasks.
+      </p>
+    </div>
+<!--    --><div class="center-container">
+  <!-- 居中显示的图片 -->
+  <img alt="Motivation" src="./static/images/Fig1_1_00.png" width="100%"/>
+<!--    <img alt="Motivation" src="./static/images/Fig1_2_00.png" width="50%"/>-->
+</div>
+  </section>
+
+
+
+<section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-three-fifths">
+      <h2 class="title is-3">Comparison</h2>
+        <!--    --><div class="center-container">
+  <!-- 居中显示的图片 -->
+  <img alt="Motivation" src="./static/images/图片16.png" width="100%"/>
+</div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+      <h2 class="title is-3">Ablation Studying</h2>
+      <!-- 居中显示带序号的图片 -->
+      <div class="center-container">
+          <img alt="Motivation" src="./static/images/Fig12_1_00.png" width="100%">
+      </div>
+    </div>
+  </div>
+  <div class="content has-text-justified">
+    <p>
+       Fine-tuning different components separately. (a) We use a non-realistic image as a source and a realistic image as an exemplar. Then we freeze the weights of the other components
+and fine-tune only (b) the Text Encoder, (c) the Text Embedding, (d) the ControlNet blocks, (e) the ControlNet blocks with edge loss, and (f) the SD U-Net blocks, respectively, each time.
+Through comparison, it can be observed that optimizing only the SD U-Net blocks achieves the highest-quality translation.
+    </p>
+  </div>
+</div>
+</section>
+
+<style>
+  .image-with-label {
+    display: inline-block;
+    position: relative;
+    margin-right: -40px;
+  }
+
+  .image-with-label .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.8em;
+    line-height: 1;
+    color: #666;
+  }
+</style>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{jin2024ipal,
+  title={DINO-ViT Enhanced Diffusion for Multi-exemplar-based Image Translation},
+  author={Xiaolin Xu1, Jiangjian Xiao, Xiaolu Zhang, Xiaofeng Jin, Xiaojing Gu, Gen Xu},
+  journal={IJCNN 2024: International Joint Conference on Neural Networks},
+  year={2024},
+  publisher={IJCNN}
+}</code></pre>
+  </div>
+</section>
+
+
+<!--<footer class="footer">-->
+<!--  <div class="container">-->
+<!--    <div class="content has-text-centered">-->
+<!--    </div>-->
+<!--    <div class="columns is-centered">-->
+<!--      <div class="column is-8">-->
+<!--        <div class="content">-->
+<!--          <p>-->
+<!--            We thank the authors of <a-->
+<!--            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> that kindly open sourced the template of this website.-->
+<!--            The html script of video comparison is borrowed from <a-->
+<!--            href="https://dorverbin.github.io/refnerf/">Ref-NeRF</a>.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</footer>-->
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.video-compare-container').forEach(function (container, index) {
+      console.log("Index of the container:", index);
+      container.addEventListener('click', function () {
+        if (index === 0) {
+          this.classList.toggle('expand-right');
+        } else if (index === 2) {
+          this.classList.toggle('expand-left');
+        } else {
+          this.classList.toggle('expanded');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
