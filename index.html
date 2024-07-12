@@ -194,9 +194,10 @@ tasks.
   </div>
   <div class="content has-text-justified">
     <p>
-       Fine-tuning different components separately. (a) We use a non-realistic image as a source and a realistic image as an exemplar. Then we freeze the weights of the other components
-and fine-tune only (b) the Text Encoder, (c) the Text Embedding, (d) the ControlNet blocks, (e) the ControlNet blocks with edge loss, and (f) the SD U-Net blocks, respectively, each time.
-Through comparison, it can be observed that optimizing only the SD U-Net blocks achieves the highest-quality translation.
+       To demonstrate the effectiveness of each loss term, we conduct ablation experiments on them. As shown in Fig, when we remove the visual attributes loss, the generated results completely fail to achieve the appearance transfer
+goal, retaining only the structure of the source image. This indicates that visual attributes loss plays a primary role in image translation in our model. When we remove fidelity loss, although the generated results possess the visual attributes of
+the target, they lack authenticity due to “over-translation”. As illustrated in the second row of Fig. 9, when transferring the visual attributes of a zebra to a horse, the mane of the horse
+exhibits a black-and-white striped texture, even though the black-and-white appearance is desired, it appears strange and unnatural. When we fine-tune using all loss terms (1), the generated image has a black and flowing mane for the horse, which is more perceptually realistic. Therefore, fidelity loss is a key factor in ensuring the realism of the generated images.
     </p>
   </div>
 </div>
